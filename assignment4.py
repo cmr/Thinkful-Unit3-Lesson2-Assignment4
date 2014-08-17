@@ -10,6 +10,8 @@ result = {}
 for row in reader:
     for column, value in row.iteritems():
         result.setdefault(column, []).append(value)
+        
+pet = result
 #        return result
 
 #-----------------------------------------------------------
@@ -42,7 +44,9 @@ try:
     
     cur = con.cursor()
 
-    cur.execute("INSERT INTO pets (name, age, breed name, species name, shelter name, adopted) VALUES (%s, %s, %s, %s, %s, %s)", (result))
+    cur.execute("DROP TABLE IF EXISTS pet CASCADE")
+    query = "INSERT INTO pets (name, age, breed name, species name, shelter name, adopted) VALUES (%s, %s, %s, %s, %s, %s)"
+    cur.executemany(query, pet)
 
     # Make the changes to the database persistent
     con.commit()
