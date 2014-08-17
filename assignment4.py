@@ -45,8 +45,14 @@ try:
     cur = con.cursor()
 
     cur.execute("DROP TABLE IF EXISTS pet CASCADE")
-    query = "INSERT INTO pets (name, age, breed name, species name, shelter name, adopted) VALUES (%s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO pets (name, age, dead, adopted) VALUES (%s, %s, %s, %s)"
     cur.executemany(query, pet)
+    query = "INSERT INTO breed (breed name) VALUES (%s)"
+    cur.executemany(query, breed)
+    query = "INSERT INTO species (species name) VALUES (%s)"
+    cur.executemany(query, species)
+    query = "INSERT INTO shelter (shelter name) VALUES (%s)"
+    cur.executemany(query, shelter)
 
     # Make the changes to the database persistent
     con.commit()
