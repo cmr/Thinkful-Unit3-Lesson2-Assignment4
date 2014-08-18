@@ -40,7 +40,9 @@ pet = result
 # Psycopg2 module methods to add CSV entries to DB.
 
 try:
-    con = psycopg2.connect("dbname='petsdb'")
+    con = psycopg2.connect(dbname='petsdb')
+    
+    con.autocommit = True
     
     cur = con.cursor()
 
@@ -55,7 +57,7 @@ try:
     cur.executemany(query, shelter)
 
     # Make the changes to the database persistent
-    con.commit()
+    #con.commit()
     
 except psycopg2.DatabaseError, e:
     
