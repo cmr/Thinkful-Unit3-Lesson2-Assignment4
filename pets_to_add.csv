@@ -1,4 +1,4 @@
-Name, age, dead, breed name, species name, shelter name, adopted
+name,age,dead,breed_name,species_name,shelter_name,adopted
 Titchy, 12, 0, mixed, cat, BCSPCA, 1
 Ginger, 1, 0, labradoodle, dog, unknown,1
 Snuffles, 2, 0, labrador retriever, dog, ASPCA, 0
